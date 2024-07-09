@@ -13,8 +13,15 @@ Concord.utils.loadNamespace("src/assemblages", Assemblages)
 
 local World = Concord.world()
 
+
+local ResourceManager  = import("/src/resources/resourceManager")
+local ResourceImporter = import("/src/resources/resourceImporter")
+
 function love.load()
 	GameWindow:setup()
+
+	ResourceImporter:importSpritesheet("assets/tiles")
+	ResourceImporter:importAnimation("assets/player")
 
 	World:addSystems(
 		Systems.shadowRendering,
@@ -33,7 +40,7 @@ end
 
 function love.draw()
 	GameWindow:draw(function()
-		love.graphics.clear(love.math.colorFromBytes(13/2, 32/2, 48/2))
+		love.graphics.clear(love.math.colorFromBytes(13 / 2, 32 / 2, 48 / 2))
 		World:emit("draw")
 	end)
 end
