@@ -1,9 +1,2 @@
-function love.load()
-end
-
-function love.update()
-	print("Hello!")
-end
-
-function love.draw()
-end
+_G.import = require("lib.import").import
+import("/src/utils/bootstrap")
