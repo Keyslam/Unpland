@@ -10,7 +10,7 @@ function GameWindow:initialize()
 end
 
 function GameWindow:setup()
-	local scale = self:getMaximumScale() - 1
+	local scale = self:getMaximumScale() - 4
 
 	Push:setupScreen(
 		self.virtualResolution.width,

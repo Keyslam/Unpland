@@ -1,3 +1,5 @@
+local ResourceManager = import("/src/resources/resourceManager")
+
 local SpriteRendering = Concord.system({
 	pool = { "position", "sprite" }
 })
@@ -35,11 +37,19 @@ end
 
 function SpriteRendering:draw()
 	for _, e in ipairs(self.pool) do
-		if (e.sprite.quad) then
-			drawWithQuad(e)
-		else
-			drawWithoutQuad(e)
-		end
+		local resource = ResourceManager:getSprite(e.sprite.resource)
+
+		local _, _, vw, vh = resource.quad:getViewport()
+	local ox, oy = math.floor(vw / 2), math.floor(vh / 2)
+
+		love.graphics.draw(
+			resource.image,
+			resource.quad,
+			e.position.x, e.position.y,
+			0,
+			1, 1,
+			ox, oy
+		)
 	end
 end
 

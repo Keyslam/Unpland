@@ -22,5 +22,6 @@ return function(e, props)
 			quad      = quad,
 			isFlipped = false,
 		})
+		:ensure("animationGraph", {})
 		:ensure("shadow")
 end

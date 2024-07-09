@@ -1,5 +1,4 @@
 Concord.component("sprite", function(e, props)
-	e.image     = Default(props.image, nil)
-	e.quad      = Default(props.quad, nil)
+	e.resource  = Default(props.resource, nil)
 	e.isFlipped = Default(props.isFlipped, false)
 end)

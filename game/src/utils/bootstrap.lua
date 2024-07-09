@@ -24,6 +24,8 @@ function love.load()
 	ResourceImporter:importAnimation("assets/player")
 
 	World:addSystems(
+		Systems.animationGraphResolving,
+		
 		Systems.shadowRendering,
 		Systems.spriteRendering
 	)
