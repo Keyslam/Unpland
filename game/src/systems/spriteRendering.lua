@@ -39,15 +39,16 @@ function SpriteRendering:draw()
 	for _, e in ipairs(self.pool) do
 		local resource = ResourceManager:getSprite(e.sprite.resource)
 
+		local sx = e.sprite.flipped and -1 or 1
 		local _, _, vw, vh = resource.quad:getViewport()
-	local ox, oy = math.floor(vw / 2), math.floor(vh / 2)
+		local ox, oy = math.floor(vw / 2), math.floor(vh / 2)
 
 		love.graphics.draw(
 			resource.image,
 			resource.quad,
 			e.position.x, e.position.y,
 			0,
-			1, 1,
+			sx, 1,
 			ox, oy
 		)
 	end

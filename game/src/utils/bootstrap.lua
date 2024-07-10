@@ -21,19 +21,34 @@ function love.load()
 	GameWindow:setup()
 
 	ResourceImporter:importSpritesheet("assets/tiles")
+	ResourceImporter:importSpritesheet("assets/dungeon_tilesheet")
 	ResourceImporter:importAnimation("assets/player")
 
 	World:addSystems(
+		Systems.controlling,
+		Systems.moving,
 		Systems.animationGraphResolving,
-		
+
 		Systems.shadowRendering,
 		Systems.spriteRendering
 	)
 
 	Concord.entity(World):assemble(Assemblages.player, {
-		x = 100,
-		y = 100,
+		x = 128,
+		y = 16,
 	})
+
+	for i = 0, 10 do
+		Concord.entity(World):assemble(Assemblages.brazier, {
+			x = 128 + 32,
+			y = 16 + (i * 48),
+		})
+
+		Concord.entity(World):assemble(Assemblages.brazier, {
+			x = 128 - 32,
+			y = 16 + (i * 48),
+		})
+	end
 end
 
 function love.update(dt)
@@ -45,4 +60,8 @@ function love.draw()
 		love.graphics.clear(love.math.colorFromBytes(13 / 2, 32 / 2, 48 / 2))
 		World:emit("draw")
 	end)
+end
+
+function love.keypressed(key)
+	World:emit("keypressed", key)
 end
