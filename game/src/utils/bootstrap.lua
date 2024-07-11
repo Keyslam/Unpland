@@ -14,7 +14,7 @@ Concord.utils.loadNamespace("src/assemblages", Assemblages)
 local World = Concord.world()
 
 
-local ResourceManager  = import("/src/resources/resourceManager")
+local ResourceRegistry = import("/src/resources/resourceRegistry")
 local ResourceImporter = import("/src/resources/resourceImporter")
 
 function love.load()

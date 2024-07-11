@@ -1,4 +1,4 @@
-local ResourceManager = import("/src/resources/resourceManager")
+local ResourceRegistry = import("/src/resources/resourceRegistry")
 
 local SpriteRendering = Concord.system({
 	pool = { "position", "sprite" }
@@ -37,7 +37,7 @@ end
 
 function SpriteRendering:draw()
 	for _, e in ipairs(self.pool) do
-		local resource = ResourceManager:getSprite(e.sprite.resource)
+		local resource = ResourceRegistry:getSprite(e.sprite.resource)
 
 		local sx = e.sprite.flipped and -1 or 1
 		local _, _, vw, vh = resource.quad:getViewport()

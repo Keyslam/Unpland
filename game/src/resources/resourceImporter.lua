@@ -1,6 +1,6 @@
 local Json = import("/lib/json")
 
-local ResourceManager = import("./resourceManager")
+local ResourceManager = import("./resourceRegistry")
 
 local ResourceImporter = Class("ResourceImporter")
 

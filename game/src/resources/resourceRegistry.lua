@@ -1,10 +1,10 @@
-local ResourceManager = Class("ResourceManager")
+local ResourceRegistry = Class("ResourceRegistry")
 
-function ResourceManager:initialize()
+function ResourceRegistry:initialize()
 	self.sprites = {}
 end
 
-function ResourceManager:registerSprite(key, image, viewport)
+function ResourceRegistry:registerSprite(key, image, viewport)
 	local iw, ih = image:getDimensions()
 	local quad = love.graphics.newQuad(
 		viewport.x, viewport.y,
@@ -18,8 +18,8 @@ function ResourceManager:registerSprite(key, image, viewport)
 	}
 end
 
-function ResourceManager:getSprite(key)
+function ResourceRegistry:getSprite(key)
 	return self.sprites[key]
 end
 
-return ResourceManager()
+return ResourceRegistry()
