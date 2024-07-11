@@ -1,11 +1,8 @@
+local Frames = import("./util/animations").frames
+
 local graph = {
 	{
-		frames = {
-			{ resource = "assets/dungeon_tilesheet/Brazier-1/Idle-0", flipped = false },
-			{ resource = "assets/dungeon_tilesheet/Brazier-1/Idle-1", flipped = false },
-			{ resource = "assets/dungeon_tilesheet/Brazier-1/Idle-2", flipped = false },
-			{ resource = "assets/dungeon_tilesheet/Brazier-1/Idle-3", flipped = false },
-		}
+		frames = Frames("assets/dungeon_tilesheet/Brazier-1/Idle", 4)
 	}
 }
 

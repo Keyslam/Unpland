@@ -1,3 +1,5 @@
+local Frames = import("./util/animations").frames
+
 local function loadSprite()
 	local image = love.graphics.newImage("assets/player.png")
 	local quad = love.graphics.newQuad(
@@ -15,39 +17,24 @@ local graph = {
 		{
 			{
 				condition = "facingUp",
-				frames = {
-					{ resource = "assets/player/WalkUp-0", flipped = false },
-					{ resource = "assets/player/WalkUp-1", flipped = false },
-					{ resource = "assets/player/WalkUp-2", flipped = false },
-					{ resource = "assets/player/WalkUp-3", flipped = false },
-				}
+				frames = Frames("assets/player/WalkUp", 4)
 			},
 			{
 				condition = "facingDown",
-				frames = {
-					{ resource = "assets/player/WalkDown-0", flipped = false },
-					{ resource = "assets/player/WalkDown-1", flipped = false },
-					{ resource = "assets/player/WalkDown-2", flipped = false },
-					{ resource = "assets/player/WalkDown-3", flipped = false },
-				}
+				frames = Frames("assets/player/WalkDown", 4)
 			},
 			{
 				condition = "facingRight",
-				frames = {
-					{ resource = "assets/player/WalkRight-0", flipped = false },
-					{ resource = "assets/player/WalkRight-1", flipped = false },
-					{ resource = "assets/player/WalkRight-2", flipped = false },
-					{ resource = "assets/player/WalkRight-3", flipped = false },
-				}
+				frames = Frames("assets/player/WalkRight", 4)
 			},
 			{
 				condition = "facingLeft",
-				frames = {
-					{ resource = "assets/player/WalkRight-0", flipped = true },
-					{ resource = "assets/player/WalkRight-1", flipped = true },
-					{ resource = "assets/player/WalkRight-2", flipped = true },
-					{ resource = "assets/player/WalkRight-3", flipped = true },
-				}
+				frames = Frames("assets/player/WalkRight", 4,
+					{ flipped = true },
+					{ flipped = true },
+					{ flipped = true },
+					{ flipped = true }
+				)
 			}
 		}
 	},
@@ -56,39 +43,24 @@ local graph = {
 		{
 			{
 				condition = "facingUp",
-				frames = {
-					{ resource = "assets/player/IdleUp-0", flipped = false },
-					{ resource = "assets/player/IdleUp-1", flipped = false },
-					{ resource = "assets/player/IdleUp-2", flipped = false },
-					{ resource = "assets/player/IdleUp-3", flipped = false },
-				}
+				frames = Frames("assets/player/IdleUp", 4)
 			},
 			{
 				condition = "facingDown",
-				frames = {
-					{ resource = "assets/player/IdleDown-0", flipped = false },
-					{ resource = "assets/player/IdleDown-1", flipped = false },
-					{ resource = "assets/player/IdleDown-2", flipped = false },
-					{ resource = "assets/player/IdleDown-3", flipped = false },
-				}
+				frames = Frames("assets/player/IdleDown", 4),
 			},
 			{
 				condition = "facingRight",
-				frames = {
-					{ resource = "assets/player/IdleRight-0", flipped = false },
-					{ resource = "assets/player/IdleRight-1", flipped = false },
-					{ resource = "assets/player/IdleRight-2", flipped = false },
-					{ resource = "assets/player/IdleRight-3", flipped = false },
-				}
+				frames = Frames("assets/player/IdleRight", 4),
 			},
 			{
 				condition = "facingLeft",
-				frames = {
-					{ resource = "assets/player/IdleRight-0", flipped = true },
-					{ resource = "assets/player/IdleRight-1", flipped = true },
-					{ resource = "assets/player/IdleRight-2", flipped = true },
-					{ resource = "assets/player/IdleRight-3", flipped = true },
-				}
+				frames = Frames("assets/player/IdleRight", 4,
+					{ flipped = true },
+					{ flipped = true },
+					{ flipped = true },
+					{ flipped = true }
+				),
 			}
 		}
 	}
