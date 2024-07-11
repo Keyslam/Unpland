@@ -1,5 +1,5 @@
 { "frames": {
-   "tiles.ase": {
+   "-0": {
     "frame": { "x": 0, "y": 0, "w": 128, "h": 128 },
     "rotated": false,
     "trimmed": false,

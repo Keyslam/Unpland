@@ -1,5 +1,5 @@
 { "frames": {
-   "dungeon_tilesheet.ase": {
+   "-0": {
     "frame": { "x": 0, "y": 0, "w": 1000, "h": 480 },
     "rotated": false,
     "trimmed": false,
@@ -15,11 +15,6 @@
   "format": "RGBA8888",
   "size": { "w": 1000, "h": 480 },
   "scale": "1",
-  "frameTags": [
-  ],
-  "layers": [
-   { "name": "Layer", "opacity": 255, "blendMode": "normal" }
-  ],
   "slices": [
    { "name": "Chest-Closed", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 0, "y": 0, "w": 16, "h": 16 } }] },
    { "name": "Chest-Open", "color": "#0000ffff", "keys": [{ "frame": 0, "bounds": {"x": 16, "y": 0, "w": 16, "h": 16 } }] },

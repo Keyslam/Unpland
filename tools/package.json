@@ -1,6 +1,7 @@
 {
 	"scripts": {
 		"Run": "lovec .",
-		"Build": "cd ../game & makelove --config ../tools/build/makelove.toml"
+		"Build": "cd ../game & makelove --config ../tools/build/makelove.toml",
+		"Export Assets": "node exportAssets.js"
 	}
 }
