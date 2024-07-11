@@ -1,3 +1,5 @@
+local ConditionRegistry = import("../conditions/conditionRegistry")
+
 local AnimationGraphResolving = Concord.system({
 	pool = { "animationGraph", "sprite" }
 })
@@ -12,26 +14,9 @@ local function resolveNode(e, node)
 
 		if (subNode.condition == nil) then
 			passesCondition = true
-		end
-
-		if (subNode.condition == "isMoving") then
-			passesCondition = e:has("movement")
-		end
-
-		if (subNode.condition == "facingUp") then
-			passesCondition = e.facing.value == "up"
-		end
-
-		if (subNode.condition == "facingDown") then
-			passesCondition = e.facing.value == "down"
-		end
-
-		if (subNode.condition == "facingRight") then
-			passesCondition = e.facing.value == "right"
-		end
-
-		if (subNode.condition == "facingLeft") then
-			passesCondition = e.facing.value == "left"
+		else
+			local condition = ConditionRegistry:get(subNode.condition)
+			passesCondition = condition(e)
 		end
 
 		if (passesCondition) then

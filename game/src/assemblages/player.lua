@@ -13,22 +13,22 @@ end
 
 local graph = {
 	{
-		condition = "isMoving",
+		condition = "entity-is-moving",
 		{
 			{
-				condition = "facingUp",
+				condition = "entity-is-facing-up",
 				frames = Frames("assets/player/WalkUp", 4)
 			},
 			{
-				condition = "facingDown",
+				condition = "entity-is-facing-down",
 				frames = Frames("assets/player/WalkDown", 4)
 			},
 			{
-				condition = "facingRight",
+				condition = "entity-is-facing-right",
 				frames = Frames("assets/player/WalkRight", 4)
 			},
 			{
-				condition = "facingLeft",
+				condition = "entity-is-facing-left",
 				frames = Frames("assets/player/WalkRight", 4,
 					{ flipped = true },
 					{ flipped = true },
@@ -42,19 +42,19 @@ local graph = {
 		condition = nil,
 		{
 			{
-				condition = "facingUp",
+				condition = "entity-is-facing-up",
 				frames = Frames("assets/player/IdleUp", 4)
 			},
 			{
-				condition = "facingDown",
+				condition = "entity-is-facing-down",
 				frames = Frames("assets/player/IdleDown", 4),
 			},
 			{
-				condition = "facingRight",
+				condition = "entity-is-facing-right",
 				frames = Frames("assets/player/IdleRight", 4),
 			},
 			{
-				condition = "facingLeft",
+				condition = "entity-is-facing-left",
 				frames = Frames("assets/player/IdleRight", 4,
 					{ flipped = true },
 					{ flipped = true },
