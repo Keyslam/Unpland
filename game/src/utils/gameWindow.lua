@@ -42,6 +42,10 @@ function GameWindow:getMaximumScale()
 	return maximumScale
 end
 
+function GameWindow:toGame(x, y)
+	return Push:toGame(x, y)
+end
+
 function GameWindow:draw(fn)
 	Push:start()
 	fn()

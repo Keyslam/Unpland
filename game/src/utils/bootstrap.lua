@@ -25,6 +25,10 @@ function love.load()
 	ResourceImporter:importAnimation("assets/player")
 
 	World:addSystems(
+		Systems.tileEditing,
+
+		Systems.autoTiling,
+
 		Systems.controlling,
 		Systems.moving,
 		Systems.animationGraphResolving,
@@ -49,6 +53,16 @@ function love.load()
 			y = 16 + (i * 48),
 		})
 	end
+
+	for x = 1, 4 do
+		for y = 1, 4 do
+			Concord.entity(World):assemble(Assemblages.wall, {
+				x = x * 16,
+				y = y * 16,
+			})
+		end
+	end
+
 end
 
 function love.update(dt)
@@ -68,4 +82,13 @@ end
 
 function love.keyreleased(key)
 	World:emit("keyreleased", key)
+end
+
+function love.mousepressed(x, y, button)
+	x, y = GameWindow:toGame(x, y)
+	World:emit("mousepressed", x, y, button)
+end
+
+function love.mousereleased(x, y, button)
+	World:emit("mousereleased", x, y, button)
 end

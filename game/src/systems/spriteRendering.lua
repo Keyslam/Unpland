@@ -39,6 +39,10 @@ function SpriteRendering:draw()
 	for _, e in ipairs(self.pool) do
 		local resource = ResourceRegistry:getSprite(e.sprite.resource)
 
+		if (resource == nil) then
+			resource = ResourceRegistry:getSprite("assets/dungeon_tilesheet/Floor-Stone-Red")
+		end
+
 		local sx = e.sprite.flipped and -1 or 1
 		local _, _, vw, vh = resource.quad:getViewport()
 		local ox, oy = math.floor(vw / 2), math.floor(vh / 2)
@@ -51,6 +55,8 @@ function SpriteRendering:draw()
 			sx, 1,
 			ox, oy
 		)
+
+		::continue::
 	end
 end
 
