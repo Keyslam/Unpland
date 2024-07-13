@@ -65,3 +65,7 @@ end
 function love.keypressed(key)
 	World:emit("keypressed", key)
 end
+
+function love.keyreleased(key)
+	World:emit("keyreleased", key)
+end
