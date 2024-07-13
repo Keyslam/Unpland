@@ -3,6 +3,11 @@ local Controlling = Concord.system({
 })
 
 local keymap = {
+	["up"] = { dx = 0, dy = -1, facing = "up" },
+	["left"] = { dx = -1, dy = 0, facing = "left" },
+	["down"] = { dx = 0, dy = 1, facing = "down" },
+	["right"] = { dx = 1, dy = 0, facing = "right" },
+
 	["w"] = { dx = 0, dy = -1, facing = "up" },
 	["a"] = { dx = -1, dy = 0, facing = "left" },
 	["s"] = { dx = 0, dy = 1, facing = "down" },
