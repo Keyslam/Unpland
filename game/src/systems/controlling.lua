@@ -7,11 +7,6 @@ local keymap = {
 	["left"] = { dx = -1, dy = 0, facing = "left" },
 	["down"] = { dx = 0, dy = 1, facing = "down" },
 	["right"] = { dx = 1, dy = 0, facing = "right" },
-
-	["w"] = { dx = 0, dy = -1, facing = "up" },
-	["a"] = { dx = -1, dy = 0, facing = "left" },
-	["s"] = { dx = 0, dy = 1, facing = "down" },
-	["d"] = { dx = 1, dy = 0, facing = "right" }
 }
 
 function Controlling:keypressed(key)
@@ -36,7 +31,7 @@ function Controlling:keyreleased(key)
 	end
 end
 
-function Controlling:update(dt)
+function Controlling:frameUpdated(dt)
 	for _, e in ipairs(self.pool) do
 		if (e:has("movement")) then
 			goto continue
@@ -51,8 +46,8 @@ function Controlling:update(dt)
 					y = e.position.y,
 				},
 				target = {
-					x = e.position.x + map.dx * 16,
-					y = e.position.y + map.dy * 16,
+					x = e.position.x + map.dx,
+					y = e.position.y + map.dy,
 				},
 				speed = 4,
 			})

@@ -5,5 +5,4 @@ return function(e, props)
 			y = Default(props.y, 0),
 		})
 		:ensure("sprite", {})
-		:ensure("ruletile", {})
 end

@@ -6,7 +6,7 @@ local function lerp(a, b, t)
 	return a + (b - a) * t
 end
 
-function Moving:update(dt)
+function Moving:frameUpdated(dt)
 	for _, e in ipairs(self.pool) do
 		e.movement.progress = math.min(
 			e.movement.progress + e.movement.speed * dt,

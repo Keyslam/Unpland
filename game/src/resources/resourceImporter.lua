@@ -8,8 +8,8 @@ function ResourceImporter:initialize()
 end
 
 function ResourceImporter:importSpritesheet(path)
-	local imagePath = path .. ".png"
-	local jsonPath  = path .. ".json"
+	local imagePath = "assets/" .. path .. ".png"
+	local jsonPath  = "assets/" .. path .. ".json"
 
 	local image = love.graphics.newImage(imagePath)
 
@@ -27,8 +27,8 @@ function ResourceImporter:importSpritesheet(path)
 end
 
 function ResourceImporter:importAnimation(path)
-	local imagePath = path .. ".png"
-	local jsonPath  = path .. ".json"
+	local imagePath = "assets/" .. path .. ".png"
+	local jsonPath  = "assets/" .. path .. ".json"
 
 	local image = love.graphics.newImage(imagePath)
 

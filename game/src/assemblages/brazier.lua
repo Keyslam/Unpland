@@ -2,7 +2,7 @@ local Frames = import("./util/animations").frames
 
 local graph = {
 	{
-		frames = Frames("assets/dungeon_tilesheet/Brazier-1/Idle", 4)
+		frames = Frames("dungeon_tilesheet/Brazier-1/Idle", 4)
 	}
 }
 

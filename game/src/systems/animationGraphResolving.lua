@@ -25,7 +25,7 @@ local function resolveNode(e, node)
 	end
 end
 
-function AnimationGraphResolving:update(dt)
+function AnimationGraphResolving:frameUpdated(dt)
 	for _, e in ipairs(self.pool) do
 		local rootNode = e.animationGraph.graph
 		local node = resolveNode(e, rootNode)

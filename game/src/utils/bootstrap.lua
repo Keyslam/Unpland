@@ -13,22 +13,25 @@ Concord.utils.loadNamespace("src/assemblages", Assemblages)
 
 local World = Concord.world()
 
+local FrameProvider = import("./frameProvider")
+local Input = import("../inputs/input")
 
 local ResourceRegistry = import("/src/resources/resourceRegistry")
 local ResourceImporter = import("/src/resources/resourceImporter")
 
+local frameProvider = FrameProvider()
+local input = Input(frameProvider)
+
 function love.load()
 	GameWindow:setup()
 
-	ResourceImporter:importSpritesheet("assets/tiles")
-	ResourceImporter:importSpritesheet("assets/dungeon_tilesheet")
-	ResourceImporter:importAnimation("assets/player")
+	ResourceImporter:importSpritesheet("tiles")
+	ResourceImporter:importSpritesheet("dungeon_tilesheet")
+	ResourceImporter:importAnimation("player")
+
+	-- World:addResource("input", input)
 
 	World:addSystems(
-		Systems.tileEditing,
-
-		Systems.autoTiling,
-
 		Systems.controlling,
 		Systems.moving,
 		Systems.animationGraphResolving,
@@ -38,54 +41,51 @@ function love.load()
 	)
 
 	Concord.entity(World):assemble(Assemblages.player, {
-		x = 128,
-		y = 16,
+		x = 0,
+		y = 0,
 	})
 
 	for i = 0, 10 do
 		Concord.entity(World):assemble(Assemblages.brazier, {
-			x = 128 + 32,
-			y = 16 + (i * 48),
+			x = 10,
+			y = i * 3,
 		})
 
 		Concord.entity(World):assemble(Assemblages.brazier, {
-			x = 128 - 32,
-			y = 16 + (i * 48),
+			x = 6,
+			y = i * 3,
 		})
 	end
-
-	for x = 1, 4 do
-		for y = 1, 4 do
-			Concord.entity(World):assemble(Assemblages.wall, {
-				x = x * 16,
-				y = y * 16,
-			})
-		end
-	end
-
 end
 
 function love.update(dt)
+	World:emit("frameUpdated", dt)
 	World:emit("update", dt)
+
+	frameProvider:step()
 end
 
 function love.draw()
 	GameWindow:draw(function()
 		love.graphics.clear(love.math.colorFromBytes(13 / 2, 32 / 2, 48 / 2))
 		World:emit("draw")
+		World:emit("frameRendered")
 	end)
 end
 
 function love.keypressed(key)
+	input:keypressed(key)
 	World:emit("keypressed", key)
 end
 
 function love.keyreleased(key)
+	input:keyreleased(key)
 	World:emit("keyreleased", key)
 end
 
 function love.mousepressed(x, y, button)
 	x, y = GameWindow:toGame(x, y)
+
 	World:emit("mousepressed", x, y, button)
 end
 

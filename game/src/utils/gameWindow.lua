@@ -43,7 +43,11 @@ function GameWindow:getMaximumScale()
 end
 
 function GameWindow:toGame(x, y)
-	return Push:toGame(x, y)
+	local gameX, gameY = Push:toGame(x, y)
+	gameX = math.floor(gameX + 0.5)
+	gameY = math.floor(gameY + 0.5)
+
+	return gameX, gameY
 end
 
 function GameWindow:draw(fn)
