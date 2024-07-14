@@ -4,7 +4,7 @@ local SpriteRendering = Concord.system({
 	pool = { "position", "sprite" }
 })
 
-function SpriteRendering:frameRendered()
+function SpriteRendering:draw()
 	for _, e in ipairs(self.pool) do
 		local resource = ResourceRegistry:getSprite(e.sprite.resource)
 
@@ -24,8 +24,6 @@ function SpriteRendering:frameRendered()
 			sx, 1,
 			ox, oy
 		)
-
-		::continue::
 	end
 end
 

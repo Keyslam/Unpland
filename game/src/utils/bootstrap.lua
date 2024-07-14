@@ -59,7 +59,6 @@ function love.load()
 end
 
 function love.update(dt)
-	World:emit("frameUpdated", dt)
 	World:emit("update", dt)
 
 	frameProvider:step()
@@ -69,7 +68,6 @@ function love.draw()
 	GameWindow:draw(function()
 		love.graphics.clear(love.math.colorFromBytes(13 / 2, 32 / 2, 48 / 2))
 		World:emit("draw")
-		World:emit("frameRendered")
 	end)
 end
 

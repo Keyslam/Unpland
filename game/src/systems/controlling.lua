@@ -31,7 +31,7 @@ function Controlling:keyreleased(key)
 	end
 end
 
-function Controlling:frameUpdated(dt)
+function Controlling:update(dt)
 	for _, e in ipairs(self.pool) do
 		if (e:has("movement")) then
 			goto continue
